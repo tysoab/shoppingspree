@@ -33,5 +33,38 @@ export { fetchProduct };
 // button buy onclick action
 
 export function addToCart(product) {
-  alert("products");
+  const storage = retrieveCart();
+  const item = {
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    quantity: 1,
+    image: product.image,
+  };
+
+  const exitProduct = storage.filter(
+    (product) =>
+      product.id === item.id && { ...product, quantity: product.quantity++ }
+  );
+  if (!exitProduct.length) storage.push(item);
+  storeCart(storage);
+
+  return storage.reduce((acc, product) => acc + product.quantity, 0);
+}
+
+// localstorage
+
+export function storeCart(products) {
+  localStorage.setItem("shoppingspree", JSON.stringify(products));
+}
+
+export function retrieveCart() {
+  return JSON.parse(localStorage.getItem("shoppingspree")) || [];
+}
+
+export function displayCartLength(length = []) {
+  const cartsEl = document.querySelector("#carts-el");
+  const cartLength = length;
+
+  cartsEl.textContent = cartLength;
 }

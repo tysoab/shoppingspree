@@ -1,4 +1,9 @@
-import { fetchProduct } from "./helper.js";
+import {
+  addToCart,
+  displayCartLength,
+  fetchProduct,
+  retrieveCart,
+} from "./helper.js";
 
 //element
 const productContainer = document.querySelector(".landing-page");
@@ -6,10 +11,16 @@ const productContainer = document.querySelector(".landing-page");
 // how to get url param
 const queryString = window.location.search;
 const id = new URLSearchParams(queryString).get("id");
+let product;
+
+// display cart length
+let cartLength =
+  retrieveCart().reduce((acc, product) => acc + product.quantity, 0) || "";
+displayCartLength(cartLength);
 
 async function displayProduct() {
-  const product = await fetchProduct(id);
-  console.log(product);
+  product = await fetchProduct(id);
+
   productContainer.innerHTML = `
   <div class="product">
           <div class="product-img">
@@ -28,7 +39,7 @@ async function displayProduct() {
             </div>
             <div class="desc">${product.description}</div>
             <div class="control-action">
-              <button>Buy</button>
+              <button data-id="${product.id}">Buy</button>
             </div>
           </div>
         </div>
@@ -36,3 +47,11 @@ async function displayProduct() {
 }
 
 displayProduct();
+
+productContainer.addEventListener("click", function (event) {
+  const btn = event.target.closest("button");
+  if (!btn) return;
+  console.log(product);
+  cartLength = addToCart(product);
+  displayCartLength(cartLength);
+});

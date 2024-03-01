@@ -278,3 +278,17 @@ footer p span {
     font-size: 14px;
   }
 }
+
+/*cart*/
+
+.cart-container {
+  position: relative;
+}
+
+#carts-el {
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  font-size: 15px;
+  color: red;
+}

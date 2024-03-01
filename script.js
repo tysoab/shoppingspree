@@ -1,11 +1,14 @@
 // import fetchData from helper.js
-import fetchData from "./helper.js";
+import fetchData, { displayCartLength, retrieveCart } from "./helper.js";
 import { addToCart } from "./helper.js";
 
 // select element
 const productsContainer = document.querySelector(".products");
 
 let ourProducts = [];
+let cartLength =
+  retrieveCart().reduce((acc, item) => acc + item.quantity, 0) || "";
+displayCartLength(cartLength);
 
 async function displayProducts() {
   ourProducts = await fetchData();
@@ -28,10 +31,8 @@ async function displayProducts() {
 
             <div class="pri-buy-el">
               <div class="product-price">N${product.price}</div>
-              <div class="control-action">
-              <input type="hidden" value="${product}" class="data"/>
-              <button id="buy">Buy</button>
-              </div>
+              <button id="buy" data-id="${product.id}">Buy</button>
+            
             </div>
 
             <small><a href="landing_page.html?id=${product.id}" >Read more</a></small>
@@ -47,13 +48,12 @@ displayProducts();
 //event listener
 
 productsContainer.addEventListener("click", function (event) {
-  const btn = event.target.closest(".control-action").querySelector("button");
-
+  const btn = event.target.closest("button");
+  const id = Number(btn.dataset.id);
   if (!btn) return;
-  const product = event.target
-    .closest(".control-action")
-    .querySelector("input");
-  console.log(product.value);
 
-  addToCart();
+  const product = ourProducts.filter((product) => product.id === id);
+
+  cartLength = addToCart(product[0]);
+  displayCartLength(cartLength);
 });
