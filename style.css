@@ -292,3 +292,15 @@ footer p span {
   font-size: 15px;
   color: red;
 }
+
+.addedTocart-msg-el {
+  position: fixed;
+  top: -100%;
+  right: 0;
+  background-color: rgba(192, 252, 192, 0.9);
+  color: rgb(4, 144, 4);
+  z-index: 2000;
+  padding: 20px 100px;
+  border-radius: 0 0 20px 20px;
+  transition: top 0.25s linear;
+}

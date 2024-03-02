@@ -1,0 +1,56 @@
+.about-page {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.about-page h1 {
+  font-size: 18px;
+}
+
+.card-el {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 40px 2%;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  height: auto;
+}
+
+.card-el h4 {
+  color: orangered;
+  font-size: 18px;
+}
+
+.card-el i {
+  font-size: 100px;
+}
+
+.card-el pre {
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+.card-el p {
+  padding: 0;
+  color: orangered;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 30px;
+}
+
+.card-el ul {
+  padding: 0;
+  margin-top: -70px;
+  margin-left: 30px;
+}
+
+.card-el ul li {
+  list-style: none;
+  font-weight: 600;
+  padding: 0;
+  margin-top: -30px;
+}

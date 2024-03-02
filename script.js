@@ -1,5 +1,9 @@
 // import fetchData from helper.js
-import fetchData, { displayCartLength, retrieveCart } from "./helper.js";
+import fetchData, {
+  displayAddedToCart,
+  displayCartLength,
+  retrieveCart,
+} from "./helper.js";
 import { addToCart } from "./helper.js";
 
 // select element
@@ -56,4 +60,5 @@ productsContainer.addEventListener("click", function (event) {
 
   cartLength = addToCart(product[0]);
   displayCartLength(cartLength);
+  displayAddedToCart();
 });

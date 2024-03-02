@@ -1,5 +1,6 @@
 import {
   addToCart,
+  displayAddedToCart,
   displayCartLength,
   fetchProduct,
   retrieveCart,
@@ -44,6 +45,9 @@ async function displayProduct() {
           </div>
         </div>
   `;
+
+  // change the page title to the product title...
+  return (document.title = product.title);
 }
 
 displayProduct();
@@ -54,4 +58,5 @@ productContainer.addEventListener("click", function (event) {
   console.log(product);
   cartLength = addToCart(product);
   displayCartLength(cartLength);
+  displayAddedToCart();
 });

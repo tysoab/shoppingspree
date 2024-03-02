@@ -62,9 +62,21 @@ export function retrieveCart() {
   return JSON.parse(localStorage.getItem("shoppingspree")) || [];
 }
 
+// display total number of items in the cart
+
 export function displayCartLength(length = []) {
   const cartsEl = document.querySelector("#carts-el");
   const cartLength = length;
 
   cartsEl.textContent = cartLength;
+}
+// dropdown message
+export function displayAddedToCart() {
+  const msgEl = document.querySelector(".addedTocart-msg-el");
+  msgEl.style.top = "0";
+  const timeoutId = setTimeout(() => {
+    msgEl.style.top = "-100%";
+  }, 2000);
+
+  return () => clearTimeout(timeoutId);
 }
