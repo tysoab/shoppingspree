@@ -3,9 +3,13 @@ import fetchData, {
   displayAddedToCart,
   displayCartLength,
   retrieveCart,
+  searchForm,
+  showSearchModal,
 } from "./helper.js";
 
 const productContainer = document.querySelector(".all-products");
+const searchbtn = document.querySelector(".search-container");
+const closeModal = document.querySelector(".close-modal dt");
 
 let products;
 let cartLength =
@@ -56,3 +60,18 @@ productContainer.addEventListener("click", function (event) {
   displayCartLength(cartLength);
   displayAddedToCart();
 });
+
+// show or hide modal
+
+searchbtn.addEventListener("click", (event) => {
+  const btn = event.target.closest("button");
+  if (!btn) return;
+  showSearchModal();
+});
+
+//close modal btn
+closeModal.addEventListener("click", showSearchModal);
+
+// use the search form function here
+
+searchForm();

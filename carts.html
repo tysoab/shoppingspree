@@ -32,10 +32,10 @@
 
       <div>
         <nav>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="/products.html">Products</a></li>
           <li><a href="about.html">About</a></li>
-          <li>
+          <li class="active">
             <a href="/carts.html" class="cart-container">
               <span id="carts-el"></span>
               <i class="fa-solid fa-cart-shopping"></i>
@@ -70,6 +70,27 @@
         <span>Yusuf</span>
       </p>
     </footer>
+
+    <!--search container-->
+    <div class="search-modal">
+      <div class="close-modal">
+        <dt>&times;</dt>
+      </div>
+      <div class="control-action">
+        <form>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search product name, categories"
+          />
+          <button>Search</button>
+        </form>
+      </div>
+
+      <div class="search-result">
+        <ul></ul>
+      </div>
+    </div>
     <!-- <script src="script.js"></script> -->
   </body>
 </html>

@@ -4,10 +4,14 @@ import {
   displayCartLength,
   fetchProduct,
   retrieveCart,
+  searchForm,
+  showSearchModal,
 } from "./helper.js";
 
 //element
 const productContainer = document.querySelector(".landing-page");
+const searchbtn = document.querySelector(".search-container");
+const closeModal = document.querySelector(".close-modal dt");
 
 // how to get url param
 const queryString = window.location.search;
@@ -60,3 +64,18 @@ productContainer.addEventListener("click", function (event) {
   displayCartLength(cartLength);
   displayAddedToCart();
 });
+
+//hide or show modal
+
+searchbtn.addEventListener("click", (event) => {
+  const btn = event.target.closest("button");
+  if (!btn) return;
+  showSearchModal();
+});
+
+//close modal btn
+closeModal.addEventListener("click", showSearchModal);
+
+// use the search form function here
+
+searchForm();

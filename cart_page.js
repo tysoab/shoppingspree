@@ -1,8 +1,17 @@
 //element
 
-import { displayCartLength, retrieveCart, storeCart } from "./helper.js";
+import {
+  displayCartLength,
+  retrieveCart,
+  searchForm,
+  showSearchModal,
+  storeCart,
+} from "./helper.js";
 
 const wrapper = document.querySelector(".wrapper");
+const searchbtn = document.querySelector(".search-container");
+const closeModal = document.querySelector(".close-modal dt");
+
 const totalEl = document.querySelector(".total-price");
 let cartsData = retrieveCart();
 
@@ -74,3 +83,18 @@ function displayTotal() {
 }
 
 displayTotal();
+
+//hide or show modal
+
+searchbtn.addEventListener("click", (event) => {
+  const btn = event.target.closest("button");
+  if (!btn) return;
+  showSearchModal();
+});
+
+//close modal btn
+closeModal.addEventListener("click", showSearchModal);
+
+// use the search form function here
+
+searchForm();

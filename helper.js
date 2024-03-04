@@ -87,3 +87,29 @@ export function showSearchModal() {
   const modalEl = document.querySelector(".search-modal");
   modalEl.classList.toggle("show-modal");
 }
+
+export async function searchForm() {
+  const form = document.querySelector(".control-action form");
+  const listContainer = document.querySelector(".search-result ul");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const inputField = form.querySelector("input");
+    if (!inputField.value) return;
+
+    let markup = "";
+    markup += `
+      <li>
+            <a href="landing_page.html?=id">
+            <img src="/images/pexels-eberhard-grossgasteiger-1612351.jpg" /></a>
+            <div class="details">
+              <h1>title</h1>
+              <p>N20</p>
+              <small><a href="landing_page.html?id=1">Read more</a></small>
+            </div>
+          </li>
+    `;
+    listContainer.innerHTML = markup;
+    inputField.value = "";
+  });
+}

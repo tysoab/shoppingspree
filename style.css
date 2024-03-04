@@ -318,7 +318,7 @@ footer p span {
   z-index: 100000;
   padding: 50px 5%;
   background-color: rgba(192, 252, 192, 0.7);
-  transition: all 1.5s linear;
+  transition: all 0.7s linear;
 }
 
 /* hide modal*/
@@ -341,7 +341,11 @@ footer p span {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.control-action form {
+.search-modal .control-action {
+  width: auto;
+}
+
+.search-modal .control-action form {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -404,4 +408,5 @@ footer p span {
 
 .search-result .details h1 {
   font-size: 18px;
+  color: #000;
 }
