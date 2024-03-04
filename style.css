@@ -390,7 +390,7 @@ footer p span {
   align-items: center;
   gap: 30px;
   align-self: flex-end;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -407,6 +407,6 @@ footer p span {
 }
 
 .search-result .details h1 {
-  font-size: 18px;
+  font-size: 15px;
   color: #000;
 }

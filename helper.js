@@ -88,27 +88,48 @@ export function showSearchModal() {
   modalEl.classList.toggle("show-modal");
 }
 
-export async function searchForm() {
+export function searchForm() {
   const form = document.querySelector(".control-action form");
   const listContainer = document.querySelector(".search-result ul");
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", async function (event) {
     event.preventDefault();
+    const products = await fetchData();
     const inputField = form.querySelector("input");
     if (!inputField.value) return;
 
+    const filterProducts = products.filter(
+      (product) =>
+        product.title
+          .toLocaleLowerCase()
+          .includes(inputField.value.trim().toLocaleLowerCase()) ||
+        product.category
+          .toLocaleLowerCase()
+          .includes(inputField.value.trim().toLocaleLowerCase())
+    );
     let markup = "";
-    markup += `
+
+    markup = "<progress></progress>";
+
+    if (!filterProducts.length) markup = "<p>No product found!, try again</p>";
+
+    if (filterProducts.length) {
+      markup = "";
+      filterProducts.forEach(
+        (product) =>
+          (markup += `
       <li>
-            <a href="landing_page.html?=id">
-            <img src="/images/pexels-eberhard-grossgasteiger-1612351.jpg" /></a>
+            <a href="landing_page.html?=${product.id}">
+            <img src="${product.image}" /></a>
             <div class="details">
-              <h1>title</h1>
-              <p>N20</p>
-              <small><a href="landing_page.html?id=1">Read more</a></small>
+              <h1>${product.title}</h1>
+              <p>N${product.price}</p>
+              <small><a href="landing_page.html?id=${product.id}">Read more</a></small>
             </div>
           </li>
-    `;
+    `)
+      );
+    }
     listContainer.innerHTML = markup;
     inputField.value = "";
   });
