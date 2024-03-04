@@ -3,11 +3,13 @@ import fetchData, {
   displayAddedToCart,
   displayCartLength,
   retrieveCart,
+  showSearchModal,
 } from "./helper.js";
 import { addToCart } from "./helper.js";
 
 // select element
 const productsContainer = document.querySelector(".products");
+const searchbtn = document.querySelector(".search-container");
 
 let ourProducts = [];
 let cartLength =
@@ -61,4 +63,12 @@ productsContainer.addEventListener("click", function (event) {
   cartLength = addToCart(product[0]);
   displayCartLength(cartLength);
   displayAddedToCart();
+});
+
+// show or hide modal
+
+searchbtn.addEventListener("click", (event) => {
+  const btn = event.target.closest("button");
+  if (!btn) return;
+  showSearchModal();
 });

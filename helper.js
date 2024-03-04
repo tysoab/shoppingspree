@@ -80,3 +80,10 @@ export function displayAddedToCart() {
 
   return () => clearTimeout(timeoutId);
 }
+
+// search modal logic
+
+export function showSearchModal() {
+  const modalEl = document.querySelector(".search-modal");
+  modalEl.classList.toggle("show-modal");
+}

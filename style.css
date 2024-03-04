@@ -304,3 +304,104 @@ footer p span {
   border-radius: 0 0 20px 20px;
   transition: top 0.25s linear;
 }
+
+/*################### search container ##########################*/
+
+.search-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: -100%;
+  bottom: -100%;
+  overflow-y: auto;
+
+  z-index: 100000;
+  padding: 50px 5%;
+  background-color: rgba(192, 252, 192, 0.7);
+  transition: all 1.5s linear;
+}
+
+/* hide modal*/
+
+.show-modal {
+  left: 0;
+  bottom: 0;
+}
+
+.close-modal {
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: red;
+  display: flex;
+  justify-content: end;
+}
+
+.close-modal dt {
+  cursor: pointer;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.control-action form {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20%;
+}
+
+.control-action form input {
+  padding: 10px 30px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  flex: 1;
+  font-size: 20px;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  color: #fff;
+}
+
+.control-action form button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #fff;
+  color: orangered;
+  border: 2px solid #fff;
+  font-weight: 600;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.search-result ul li {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.search-result ul li .details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  align-self: flex-end;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.search-result ul li img {
+  height: 100px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.search-result ul li .details a {
+  color: #000;
+  font-style: italic;
+}
+
+.search-result .details h1 {
+  font-size: 18px;
+}
